@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sarim | Data Analyst & Power BI Freelancer</title>
+<meta name="description" content="Data Analyst and Business Intelligence freelancer. Power BI dashboards, Excel data cleaning, and MySQL databases that turn raw data into clear decisions.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8A%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Sarim | Data Analyst &amp; Power BI Freelancer">
+<meta property="og:description" content="Power BI dashboards, Excel data cleaning, and MySQL databases that turn raw data into clear decisions.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F2C811">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #F2F4F7;
+  --surface: #FFFFFF;
+  --ink: #17212F;
+  --muted: #55627A;
+  --line: #D5DAE3;
+  --chip: #E6EAF1;
+  --accent: #F2C811;
+  --accent-ink: #17212F;
+  --link: #0B6A85;
+  --bar: #F2C811;
+  --band-bg: #17212F;
+  --band-ink: #F2F4F7;
+  --band-muted: #B4BFD2;
+  --band-line: #33425A;
+  --danger: #B4432B;
+  --display: "Bricolage Grotesque", "Trebuchet MS", "Segoe UI", sans-serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1620;
+    --surface: #17212F;
+    --ink: #EEF1F6;
+    --muted: #A3AEC2;
+    --line: #2A3648;
+    --chip: #223047;
+    --link: #5CC8E0;
+    --band-bg: #1B2739;
+    --danger: #F0937D;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1620;
+  --surface: #17212F;
+  --ink: #EEF1F6;
+  --muted: #A3AEC2;
+  --line: #2A3648;
+  --chip: #223047;
+  --link: #5CC8E0;
+  --band-bg: #1B2739;
+  --danger: #F0937D;
+}
+html { height: 100%; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px); scroll-behavior: smooth; }
+*, *::before, *::after { box-sizing: inherit; }
+body {
+  margin: 0; min-height: 100%;
+  background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; display: block; }
+a { color: var(--link); }
+h1, h2, h3, h4 { font-family: var(--display); line-height: 1.1; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 72px 0; }
+.section-title { font-size: clamp(1.9rem, 4.5vw, 2.9rem); font-weight: 800; max-width: 22ch; }
+.section-lead { color: var(--muted); max-width: 60ch; margin-top: 14px; }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 1rem/1 var(--body); text-decoration: none; cursor: pointer;
+  padding: 14px 20px; border-radius: 10px; border: 2px solid transparent;
+}
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { filter: brightness(0.94); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-ghost:hover { background: var(--chip); }
+.btn-small { padding: 10px 14px; font-size: 0.95rem; }
+
+/* header */
+.top {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+.brand { font: 800 1.25rem var(--display); color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+.brand small { font: 500 0.9rem var(--body); color: var(--muted); margin-left: 10px; letter-spacing: 0; }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a:not(.btn) { color: var(--ink); text-decoration: none; font-weight: 500; font-size: 0.98rem; }
+.nav a:not(.btn):hover { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 720px) { .nav a:not(.btn) { display: none; } .brand small { display: none; } }
+
+/* hero */
+.hero { padding: 56px 0 40px; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+@media (min-width: 900px) { .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 56px; } }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 800; letter-spacing: -0.035em; }
+.hero p.sub { margin-top: 22px; font-size: 1.15rem; color: var(--muted); max-width: 52ch; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+
+.demo { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; }
+.demo-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.demo-title { font-weight: 600; font-size: 0.95rem; color: var(--muted); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+th, td { padding: 10px 12px; text-align: left; white-space: nowrap; border-bottom: 1px solid var(--line); }
+th { background: var(--chip); font-weight: 600; font-size: 0.9rem; }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; }
+.demo[data-state="messy"] td { color: var(--ink); }
+.demo[data-state="messy"] tr.dup td { color: var(--danger); }
+.flash td, .flash th { animation: flash 1.1s ease-out; }
+@keyframes flash { from { background: color-mix(in srgb, var(--accent) 55%, transparent); } to { background: transparent; } }
+.demo-note { margin-top: 14px; font-size: 0.95rem; color: var(--muted); min-height: 3em; }
+
+/* positioning */
+.statement { padding: 32px 0 72px; }
+.statement p {
+  font: 600 clamp(1.4rem, 3.2vw, 2.1rem)/1.3 var(--display); letter-spacing: -0.02em;
+  max-width: 34ch; padding-left: 22px; border-left: 6px solid var(--accent);
+}
+
+/* projects */
+.project { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 28px; margin-top: 32px; }
+@media (min-width: 800px) { .project { padding: 40px; } }
+.project h3 { font-size: clamp(1.55rem, 3.4vw, 2.2rem); font-weight: 800; max-width: 26ch; }
+.project .intro { margin-top: 12px; font-size: 1.12rem; max-width: 62ch; }
+.project-body { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 28px; }
+@media (min-width: 900px) { .project-body { grid-template-columns: 1fr 1.1fr; gap: 44px; } }
+.copy h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 6px; }
+.copy p + h4 { margin-top: 20px; }
+.copy p { color: var(--muted); max-width: 60ch; }
+.visual { margin: 0; min-width: 0; }
+.visual figcaption { margin-top: 10px; font-size: 0.88rem; color: var(--muted); }
+.triple { display: grid; grid-template-columns: 1fr; gap: 28px; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
+@media (min-width: 800px) { .triple { grid-template-columns: repeat(3, 1fr); } }
+.triple h4 { font-size: 1.05rem; font-weight: 800; margin-bottom: 10px; }
+.triple li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 0.98rem; }
+.triple li:last-child { border-bottom: 0; }
+.project-foot { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--chip); border-radius: 6px; padding: 5px 10px; font-size: 0.9rem; font-weight: 500; }
+.project-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.project-cta p { color: var(--muted); font-size: 0.98rem; max-width: 42ch; }
+
+/* ER + sql */
+.er { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 12px; overflow-x: auto; }
+.er svg { min-width: 440px; }
+.er .tbl { fill: var(--surface); stroke: var(--line); stroke-width: 1.5; }
+.er .thead { fill: var(--chip); }
+.er text { fill: var(--ink); font-family: var(--body); font-size: 13px; }
+.er .t-name { font-weight: 700; font-size: 14px; }
+.er .t-dim { fill: var(--muted); }
+.er .rel { stroke: var(--link); stroke-width: 2; fill: none; }
+.er .rel-t { fill: var(--link); font-weight: 700; }
+pre.sql {
+  margin: 12px 0 0; background: var(--band-bg); color: var(--band-ink);
+  border-radius: 12px; padding: 16px; overflow-x: auto; font: 0.9rem/1.6 ui-monospace, Menlo, Consolas, monospace;
+}
+
+/* excel map */
+.map { border: 1px solid var(--line); border-radius: 12px; overflow-x: auto; background: var(--bg); }
+.map table { font-size: 0.93rem; }
+.map td:first-child { color: var(--muted); }
+.map td:last-child { font-weight: 600; }
+
+/* skills */
+.skills { margin-top: 32px; border-top: 1px solid var(--line); }
+.skill-row { display: grid; grid-template-columns: 1fr; gap: 6px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 800px) { .skill-row { grid-template-columns: 240px 1fr; gap: 32px; } }
+.skill-row h3 { font-size: 1.25rem; font-weight: 800; }
+.skill-row p { color: var(--muted); max-width: 64ch; }
+.skills-chips { margin-top: 28px; }
+
+/* process (a real sequence) */
+.steps { margin-top: 32px; display: grid; grid-template-columns: 1fr; gap: 0; counter-reset: s; }
+@media (min-width: 900px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+.step { padding: 22px 22px 22px 0; border-top: 3px solid var(--ink); counter-increment: s; margin-right: 22px; }
+.step::before { content: counter(s); font: 800 1.6rem var(--display); display: block; margin-bottom: 8px; }
+.step h3 { font-size: 1.2rem; font-weight: 800; }
+.step p { margin-top: 8px; color: var(--muted); font-size: 1rem; }
+@media (max-width: 899px) { .step { margin-right: 0; } }
+
+/* contact */
+.contact { background: var(--band-bg); color: var(--band-ink); padding: 80px 0; }
+.contact h2 { font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; max-width: 18ch; }
+.contact .section-lead { color: var(--band-muted); }
+.paths { display: grid; grid-template-columns: 1fr; margin-top: 40px; border-top: 1px solid var(--band-line); }
+@media (min-width: 860px) { .paths { grid-template-columns: repeat(3, 1fr); } }
+.path { padding: 24px 24px 24px 0; border-bottom: 1px solid var(--band-line); }
+@media (min-width: 860px) { .path { border-bottom: 0; border-right: 1px solid var(--band-line); padding: 26px; } .path:first-child { padding-left: 0; } .path:last-child { border-right: 0; } }
+.path h3 { font-size: 1.25rem; font-weight: 800; }
+.path p { margin-top: 10px; color: var(--band-muted); }
+.contact .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+.contact .btn-ghost { color: var(--band-ink); border-color: var(--band-ink); }
+.contact .btn-ghost:hover { background: rgba(255,255,255,0.08); }
+footer { padding: 28px 0; color: var(--muted); font-size: 0.92rem; }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; }
+
+/* real screenshot + lightbox */
+.shot { margin: 28px 0 0; }
+.shot-btn { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; text-align: left; font: inherit; color: inherit; }
+.browser { display: block; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: #fff; }
+.browser-bar { display: block; padding: 10px 14px; background: var(--chip); font-size: 0.88rem; font-weight: 500; color: var(--muted); }
+.browser img { display: block; width: 100%; height: auto; }
+.shot figcaption { margin-top: 10px; font-size: 0.88rem; color: var(--muted); }
+.project-body.two { margin-top: 32px; }
+@media (min-width: 900px) { .project-body.two { grid-template-columns: 1fr 1fr; } }
+.seen li { padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 0.98rem; color: var(--muted); }
+.seen li:first-child { padding-top: 0; }
+.seen li:last-child { border-bottom: 0; }
+.seen strong { color: var(--ink); font-weight: 600; }
+dialog.lightbox { width: min(96vw, 1200px); max-width: none; padding: 0; border: 0; background: transparent; }
+dialog.lightbox::backdrop { background: rgba(8, 12, 18, 0.82); }
+dialog.lightbox img { width: 100%; height: auto; border-radius: 10px; background: #fff; }
+dialog.lightbox .close { position: absolute; top: 10px; right: 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .flash td, .flash th { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">Sarim<small>Data Analyst</small></a>
+    <nav class="nav" aria-label="Main">
+      <a href="#work">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#process">How I work</a>
+      <a class="btn btn-primary btn-small" href="#contact">Start a project</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Messy data in. Clear decisions out.</h1>
+      <p class="sub">I'm Sarim, a Data Analyst and Business Intelligence freelancer. I build Power BI dashboards, clean and structure Excel data, and set up MySQL databases for small businesses, startups, and online stores.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#contact">Send me your data problem</a>
+        <a class="btn btn-ghost" href="#work">See my projects</a>
+      </div>
+    </div>
+
+    <div class="demo" id="demo" data-state="messy">
+      <div class="demo-bar">
+        <span class="demo-title">customer_orders.xlsx</span>
+        <button class="btn btn-primary btn-small" id="cleanBtn" type="button" aria-pressed="false">Clean this data</button>
+      </div>
+      <div class="table-wrap"><table id="demoTable"></table></div>
+      <p class="demo-note" id="demoNote" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- POSITIONING -->
+<section class="statement">
+  <div class="wrap">
+    <p>Most businesses already have the data they need. I help turn it into clean reports and easy dashboards, so you can see what is happening and decide with confidence.</p>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section" id="work" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="section-title">Three projects, three kinds of data problem</h2>
+    <p class="section-lead">Each one starts with a business question, not a tool. Here is what the client needs, what I built, and why it helps.</p>
+
+    <!-- PROJECT 1 -->
+    <article class="project" id="p1">
+      <h3>Interactive E-commerce Sales and MTD Dashboard in Power BI</h3>
+      <p class="intro">Turned raw sales data into an interactive dashboard that shows how the business is performing right now.</p>
+
+      <figure class="shot">
+        <button class="shot-btn" type="button" id="openShot" aria-label="Enlarge the dashboard screenshot">
+          <span class="browser">
+            <span class="browser-bar">Power BI report: E-commerce Sales Dashboard</span>
+            <img src="images/sales-dashboard.png" width="965" height="509" alt="Power BI e-commerce sales dashboard with a product filter, ranked product bars, revenue by month, revenue by category pie chart, ratings by category, and a ratings-by-state map">
+          </span>
+        </button>
+        <figcaption>Click the image to enlarge. Built on a sample e-commerce dataset.</figcaption>
+      </figure>
+
+      <div class="project-body two">
+        <div class="copy">
+          <h4>The problem</h4>
+          <p>An e-commerce business needs to know how sales are going, but the data sits in spreadsheets and exports. Checking performance means manual work, and comparing months, products, and categories is slow.</p>
+          <h4>What I did</h4>
+          <p>I cleaned and structured the sales data, then built an interactive Power BI report with a main sales dashboard and a dedicated Month-to-Date (MTD) report page. I designed it around the questions a sales team asks every week: what is selling, what is not, and how is this month tracking?</p>
+        </div>
+        <div class="copy">
+          <h4>What you can see at a glance</h4>
+          <ul class="seen">
+            <li><strong>Revenue by category.</strong> In this sample data, laptops bring in the largest share, about 31%.</li>
+            <li><strong>Revenue by month.</strong> A trend line that makes ups and downs easy to spot.</li>
+            <li><strong>Product filter.</strong> Pick any product and the whole page updates.</li>
+            <li><strong>Lost revenue and average order value</strong> by category, side by side with revenue.</li>
+            <li><strong>Ratings by category and by state</strong>, so weak spots are easy to find.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="triple">
+        <div>
+          <h4>Key features</h4>
+          <ul>
+            <li>Revenue, lost revenue, and average order value by category</li>
+            <li>Monthly revenue trend and ranked top products</li>
+            <li>Product filter that updates the whole dashboard</li>
+            <li>Customer ratings by category and by state (map)</li>
+            <li>Sales totals per category at a glance</li>
+            <li>Separate Month-to-Date (MTD) report page</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Business value</h4>
+          <ul>
+            <li>Replaces manual sales reporting with one place to check performance</li>
+            <li>Makes month-to-month comparison quick</li>
+            <li>Shows which products, categories, and regions drive sales</li>
+            <li>Makes complex data easier to understand for non-technical people</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Deliverables</h4>
+          <ul>
+            <li>Complete Power BI report (.pbix)</li>
+            <li>Dashboard preview image</li>
+            <li>Data prepared and ready for reporting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-foot">
+        <div class="chips" aria-label="Tools used"><span class="chip">Power BI</span><span class="chip">SQL</span><span class="chip">Microsoft Excel</span></div>
+        <div class="project-cta">
+          <p>Have sales data but no clear view of it? Send me a sample and I will suggest what your dashboard could show.</p>
+          <a class="btn btn-ghost btn-small" href="https://github.com/sarim290/powerbi-sales-dashboard" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 2 -->
+    <article class="project" id="p2">
+      <h3>MySQL Employee Database: Structured, Connected, and Ready to Query</h3>
+      <p class="intro">Designed a clean, connected database and used SQL to turn stored records into answers.</p>
+
+      <div class="project-body">
+        <div class="copy">
+          <h4>The problem</h4>
+          <p>Employee and business records often live in separate spreadsheets. Information gets duplicated and goes out of date, and simple questions like "how many people are in each department?" take too long to answer.</p>
+          <h4>What I did</h4>
+          <p>I designed a relational employee database from scratch. I planned the tables, defined primary and foreign keys, and connected everything so the data stays consistent. Then I wrote SQL queries to add, update, retrieve, and analyze the data.</p>
+        </div>
+
+        <figure class="visual">
+          <div class="er">
+            <svg viewBox="0 0 440 190" role="img" aria-label="Example diagram of two linked database tables">
+              <rect class="tbl" x="10" y="20" width="170" height="130" rx="8"/>
+              <path class="thead" d="M10 28a8 8 0 0 1 8-8h154a8 8 0 0 1 8 8v20H10z"/>
+              <text class="t-name" x="24" y="40">departments</text>
+              <text x="24" y="72">dept_id</text><text class="t-dim" x="136" y="72">PK</text>
+              <text x="24" y="98">dept_name</text>
+              <text x="24" y="124">location</text>
+
+              <rect class="tbl" x="260" y="20" width="170" height="150" rx="8"/>
+              <path class="thead" d="M260 28a8 8 0 0 1 8-8h154a8 8 0 0 1 8 8v20H260z"/>
+              <text class="t-name" x="274" y="40">employees</text>
+              <text x="274" y="72">emp_id</text><text class="t-dim" x="386" y="72">PK</text>
+              <text x="274" y="98">full_name</text>
+              <text x="274" y="124">dept_id</text><text class="t-dim" x="386" y="124">FK</text>
+              <text x="274" y="150">hire_date</text>
+
+              <path class="rel" d="M180 72 H220 V124 H260"/>
+              <text class="rel-t" x="186" y="66">1</text>
+              <text class="rel-t" x="240" y="118">many</text>
+            </svg>
+          </div>
+<pre class="sql"><code>SELECT d.dept_name, COUNT(e.emp_id) AS headcount
+FROM departments d
+LEFT JOIN employees e ON e.dept_id = d.dept_id
+GROUP BY d.dept_name;</code></pre>
+          <figcaption>Example structure and the kind of question it answers. See the SQL scripts on GitHub.</figcaption>
+        </figure>
+      </div>
+
+      <div class="triple">
+        <div>
+          <h4>Key features</h4>
+          <ul>
+            <li>Relational design with multiple linked tables</li>
+            <li>Primary and foreign keys to keep data accurate</li>
+            <li>CRUD operations: create, read, update, delete</li>
+            <li>JOIN queries that combine information across tables</li>
+            <li>Aggregations for summaries and reporting</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Business value</h4>
+          <ul>
+            <li>One organized source of truth instead of scattered files</li>
+            <li>Fewer duplicate or inconsistent records</li>
+            <li>Fast answers to common business questions</li>
+            <li>A solid base that can feed Power BI or Excel reports later</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Deliverables</h4>
+          <ul>
+            <li>Database structure and SQL scripts</li>
+            <li>Sample data and tested queries</li>
+            <li>Query examples for common reporting questions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-foot">
+        <div class="chips" aria-label="Tools used"><span class="chip">MySQL</span><span class="chip">SQL</span></div>
+        <div class="project-cta">
+          <p>Data in too many files, or a database that will not give you answers? Tell me what you need to find out.</p>
+          <a class="btn btn-ghost btn-small" href="https://github.com/sarim290/MYSQL-PRACTICE" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- PROJECT 3 -->
+    <article class="project" id="p3">
+      <h3>Excel Data Cleaning and Analysis: From Messy Data to Clear Reports</h3>
+      <p class="intro">Cleaned and structured messy data so the numbers can finally be trusted.</p>
+
+      <div class="project-body">
+        <div class="copy">
+          <h4>The problem</h4>
+          <p>Spreadsheets fill up with duplicates, mixed date formats, and crammed columns. Reports built on that data are slow to make and easy to get wrong, and nobody is sure the totals are right.</p>
+          <h4>What I did</h4>
+          <p>I cleaned the raw dataset step by step: removed duplicates, standardized dates, and split combined data into separate columns. Then I built the analysis with Excel formulas and added data validation so the same problems do not come back.</p>
+        </div>
+
+        <figure class="visual">
+          <div class="map">
+            <table>
+              <thead><tr><th>When the data has this problem</th><th>I use</th></tr></thead>
+              <tbody>
+                <tr><td>Repeated rows</td><td>Remove Duplicates</td></tr>
+                <tr><td>Dates typed five different ways</td><td>Date formatting</td></tr>
+                <tr><td>Name and city in one cell</td><td>Text to Columns</td></tr>
+                <tr><td>Details live in another list</td><td>XLOOKUP</td></tr>
+                <tr><td>Totals by condition</td><td>SUMIF / SUMIFS</td></tr>
+                <tr><td>Counts by condition</td><td>COUNTIF / COUNTIFS</td></tr>
+                <tr><td>A live list of matching rows</td><td>FILTER</td></tr>
+                <tr><td>Wrong entries sneaking in</td><td>Data Validation</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption>The Excel tool I reach for, matched to the problem it solves.</figcaption>
+        </figure>
+      </div>
+
+      <div class="triple">
+        <div>
+          <h4>Key features</h4>
+          <ul>
+            <li>Duplicate removal and consistency checks</li>
+            <li>Standardized date formatting</li>
+            <li>Combined fields split into clean columns</li>
+            <li>XLOOKUP, SUMIFS, COUNTIFS, and FILTER for analysis</li>
+            <li>Data validation, sorting, and filtering</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Business value</h4>
+          <ul>
+            <li>A clean dataset you can trust for reporting</li>
+            <li>Less time spent fixing and re-checking numbers</li>
+            <li>Analysis that updates as your data changes</li>
+            <li>A file that is ready to reuse or load into Power BI</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Deliverables</h4>
+          <ul>
+            <li>Cleaned and structured Excel workbook</li>
+            <li>Analysis sheet with formulas and summaries</li>
+            <li>Data validation applied where needed</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-foot">
+        <div class="chips" aria-label="Tools used"><span class="chip">Microsoft Excel</span><span class="chip">Data Cleaning</span><span class="chip">Data Analysis</span></div>
+        <div class="project-cta">
+          <p>Spreadsheet turned into a headache? Send a sample with sensitive details removed and I will tell you how I would clean it up.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills" style="padding-top:24px">
+  <div class="wrap">
+    <h2 class="section-title">What I work with</h2>
+    <div class="skills">
+      <div class="skill-row"><h3>Power BI</h3><p>Interactive dashboards, KPI cards, filters, and visuals for sales and business reporting.</p></div>
+      <div class="skill-row"><h3>Microsoft Excel</h3><p>Data cleaning and analysis with XLOOKUP, SUMIFS, COUNTIFS, FILTER, and data validation.</p></div>
+      <div class="skill-row"><h3>MySQL and SQL</h3><p>Database design, CRUD operations, JOINs, and aggregations for analysis and reporting.</p></div>
+      <div class="skill-row"><h3>Python</h3><p>Python for data-related tasks, used alongside my main tools.</p></div>
+    </div>
+    <div class="chips skills-chips" aria-label="Skills">
+      <span class="chip">Data Analysis</span><span class="chip">Data Cleaning</span><span class="chip">Data Visualization</span><span class="chip">Business Intelligence</span><span class="chip">Interactive Dashboards</span><span class="chip">Power BI</span><span class="chip">Microsoft Excel</span><span class="chip">SQL</span><span class="chip">MySQL</span><span class="chip">Python</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process" style="padding-top:24px">
+  <div class="wrap">
+    <h2 class="section-title">How I work with you</h2>
+    <p class="section-lead">I design the solution around your business needs, not around whichever tool is fashionable.</p>
+    <div class="steps">
+      <div class="step"><h3>Understand</h3><p>We agree on what you need to know and which decisions the data should help with.</p></div>
+      <div class="step"><h3>Clean and structure</h3><p>I fix duplicates, formats, and missing pieces so the numbers can be trusted.</p></div>
+      <div class="step"><h3>Analyze and build</h3><p>I create the dashboard, queries, or report that answers your questions.</p></div>
+      <div class="step"><h3>Deliver and explain</h3><p>You get the files plus a clear walkthrough, so you can use them without me.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Send me a sample of your data.</h2>
+    <p class="section-lead">Tell me your main business question, and I will suggest a simple way to get started. No pressure and no jargon.</p>
+    <div class="paths">
+      <div class="path"><h3>Messy spreadsheets</h3><p>Duplicates, mixed formats, columns that do not make sense. I will clean and structure them into something you can trust.</p></div>
+      <div class="path"><h3>Slow reporting</h3><p>If building the monthly report takes hours, a Power BI dashboard can put the answers in one place.</p></div>
+      <div class="path"><h3>Not sure what you need</h3><p>That is fine. Share what you have and what you want to know, and we will work out the next step together.</p></div>
+    </div>
+    <div class="actions">
+      <a class="btn btn-primary" id="hireBtn" href="#">Message me on Upwork</a>
+      <a class="btn btn-ghost" href="https://github.com/sarim290" target="_blank" rel="noopener">See my GitHub</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Sarim, Data Analyst and Business Intelligence Freelancer</span>
+    <span>Power BI, Excel, MySQL, and Python for data tasks</span>
+  </div>
+</footer>
+
+<dialog class="lightbox" id="lightbox" aria-label="Dashboard screenshot, enlarged">
+  <button class="btn btn-primary btn-small close" type="button" id="closeShot">Close</button>
+  <img src="images/sales-dashboard.png" alt="Power BI e-commerce sales dashboard, full size">
+</dialog>
+
+<script>
+(function () {
+  // Hero: messy vs cleaned data
+  var messy = {
+    head: ['Customer', 'Date', 'Amount'],
+    numCols: [2],
+    rows: [
+      { cells: ['rahim khan , Karachi', '3rd April 2025', '1,200 '] },
+      { cells: ['AYESHA MALIK,Lahore', '04/04/2025', '850'] },
+      { cells: ['Ayesha Malik, Lahore', 'Apr 4, 2025', '850'], dup: true },
+      { cells: ['hamza ali,Karachi', 'April 5th', '2100'] }
+    ],
+    note: 'Four rows, mixed formats, one duplicate. This is how data often arrives.'
+  };
+  var clean = {
+    head: ['Customer', 'City', 'Date', 'Amount'],
+    numCols: [3],
+    rows: [
+      { cells: ['Rahim Khan', 'Karachi', '2025-04-03', '1,200'] },
+      { cells: ['Ayesha Malik', 'Lahore', '2025-04-04', '850'] },
+      { cells: ['Hamza Ali', 'Karachi', '2025-04-05', '2,100'] }
+    ],
+    note: 'Duplicate removed. Dates standardized. City split into its own column. Ready to analyze.'
+  };
+
+  var demo = document.getElementById('demo');
+  var table = document.getElementById('demoTable');
+  var note = document.getElementById('demoNote');
+  var btn = document.getElementById('cleanBtn');
+
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); }
+
+  function render(data, animate) {
+    var h = '<thead><tr' + (animate ? ' class="flash"' : '') + '>';
+    data.head.forEach(function (t, i) {
+      h += '<th' + (data.numCols.indexOf(i) > -1 ? ' class="num"' : '') + '>' + esc(t) + '</th>';
+    });
+    h += '</tr></thead><tbody>';
+    data.rows.forEach(function (r) {
+      var cls = [];
+      if (r.dup) cls.push('dup');
+      if (animate) cls.push('flash');
+      h += '<tr' + (cls.length ? ' class="' + cls.join(' ') + '"' : '') + '>';
+      r.cells.forEach(function (c, i) {
+        h += '<td' + (data.numCols.indexOf(i) > -1 ? ' class="num"' : '') + '>' + esc(c) + '</td>';
+      });
+      h += '</tr>';
+    });
+    h += '</tbody>';
+    table.innerHTML = h;
+    note.textContent = data.note;
+  }
+
+  var isClean = false;
+  render(messy, false);
+  btn.addEventListener('click', function () {
+    isClean = !isClean;
+    demo.setAttribute('data-state', isClean ? 'clean' : 'messy');
+    btn.setAttribute('aria-pressed', String(isClean));
+    btn.textContent = isClean ? 'Show original' : 'Clean this data';
+    render(isClean ? clean : messy, true);
+  });
+
+  // Project 1: enlarge screenshot
+  var lb = document.getElementById('lightbox');
+  document.getElementById('openShot').addEventListener('click', function () { lb.showModal(); });
+  document.getElementById('closeShot').addEventListener('click', function () { lb.close(); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+
+  // Placeholder link: replace # with your Upwork profile URL
+  var hire = document.getElementById('hireBtn');
+  hire.addEventListener('click', function (e) { if (hire.getAttribute('href') === '#') e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
